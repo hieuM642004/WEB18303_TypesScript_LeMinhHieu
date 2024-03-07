@@ -1,0 +1,19 @@
+{
+  "name": "web18303_typescript_leminhhieu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieuM642004/WEB18303_TypesScript_LeMinhHieu.git"
+  },
+  "author": "Hieu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hieuM642004/WEB18303_TypesScript_LeMinhHieu/issues"
+  },
+  "homepage": "https://github.com/hieuM642004/WEB18303_TypesScript_LeMinhHieu#readme"
+}
