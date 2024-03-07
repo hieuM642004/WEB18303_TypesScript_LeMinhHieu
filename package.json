@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "gulp compile"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/hieuM642004/WEB18303_TypesScript_LeMinhHieu/issues"
   },
-  "homepage": "https://github.com/hieuM642004/WEB18303_TypesScript_LeMinhHieu#readme"
+  "homepage": "https://github.com/hieuM642004/WEB18303_TypesScript_LeMinhHieu#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1"
+  }
 }

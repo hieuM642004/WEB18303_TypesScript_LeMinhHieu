@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(https://img.freepik.com/free-vector/cartoon-forest-landscape-endless-nature-background-computer-games-nature-tree-outdoor-plant-green-natural-environment-wood_1284-41524.jpg?w=1380&t=st=1709740869~exp=1709741469~hmac=c9a58f9dbe966dd55d738c82cb2270a3c12a58b6a35f9ab87e2301064a59b55c);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#form-user {
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+
+    #error {
+        color: red;
+    }
+}
+
+.icon{
+    width: 30px;
+}
