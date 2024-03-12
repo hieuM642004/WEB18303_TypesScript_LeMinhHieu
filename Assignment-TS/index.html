@@ -85,7 +85,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                            Hướng dẫn
+                            Hướng dẫn phím tắt
                         </h1>
                         <button
                             type="button"
@@ -94,9 +94,11 @@
                             aria-label="Close"
                         ></button>
                     </div>
+                    <p class="text-warning text-sm fst-italic">*Sau khi đóng hướng dẫn trước khi chơi hãy click chuột vào màn hình một lần để bắt đầu chơi </p>
                     <div class="modal-body">
-                        <ul class="list-group ">
-                            <li class="list-group-item d-flex justify-content-center">
+                        <ul class="list-group text-center">
+                            <li class="list-group-item d-inline-block">
+                                
                                 <img
                                     class="icon"
                                     src="./src/assets/icon/left.png"
@@ -105,7 +107,7 @@
                                 />
                                 <p>Di chuyển sang trái</p>
                             </li>
-                            <li class="list-group-item d-flex ">
+                            <li class="list-group-item d-inline-block">
                                 <img
                                     class="icon"
                                     src="./src/assets/icon/right.png"
@@ -114,7 +116,7 @@
                                 />
                                 <p>Di chuyển sang phải</p>
                             </li>
-                            <li class="list-group-item d-flex justify-content-center">
+                            <li class="list-group-item d-inline-block">
                                 <img
                                     class="icon"
                                     src="./src/assets/icon/x.png"
@@ -123,7 +125,7 @@
                                 />
                                 <p>Bay lên</p>
                             </li>
-                            <li class="list-group-item d-flex justify-content-center">
+                            <li class="list-group-item d-inline-block">
                                 <img
                                     class="icon"
                                     src="./src/assets/icon/z.png"
@@ -132,20 +134,15 @@
                                 />
                                 <p>Tấn công kẻ địch</p>
                             </li>
-                            <li class="list-group-item d-flex justify-content-center">
-                                <img
-                                    class="icon"
-                                    src="./src/assets/icon/z.png"
-                                    alt=""
-                                    srcset=""
-                                />
-                                <p>Tấn công kẻ địch</p>
-                            </li>
+                          
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+<!-- Music -->
+<audio id="background-music" src="./src/assets/music/music.mp3" preload="auto" loop></audio>
+
         <div id="app"></div>
 
         <script

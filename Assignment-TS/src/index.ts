@@ -1,6 +1,11 @@
 import { gameSetup } from './main';
 
 document.addEventListener('DOMContentLoaded', function () {
+    const backgroundMusic = document.getElementById(
+        'background-music',
+    ) as HTMLAudioElement;
+
+    backgroundMusic.play();
     const canvases = document.querySelectorAll('canvas');
     canvases.forEach((canvas: HTMLCanvasElement) => {
         canvas.style.display = 'none';
@@ -36,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (isValid) {
+            backgroundMusic.pause();
             instruct.style.display = 'block';
             localStorage.setItem('playerName', name);
             const canvases = document.querySelectorAll('canvas');

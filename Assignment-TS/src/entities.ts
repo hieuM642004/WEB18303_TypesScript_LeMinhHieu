@@ -27,7 +27,7 @@ import kaboom, { SpriteComp, AreaComp, BodyComp, PosComp, ScaleComp, DoubleJumpC
       k.pos(posX * scale, posY * scale),
       k.scale(scale),
       k.doubleJump(10),
-      k.health(3),
+      k.health(4),
       k.opacity(1),
       {
         speed: 300,
