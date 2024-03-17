@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(https://wallpapers.com/images/hd/no-man-s-sky-4k-gaming-9cw5c1q7y6z57mgy.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#form-user {
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+
+    #error {
+        color: red;
+    }
+}
+
+.icon{
+    width: 30px;
+}
