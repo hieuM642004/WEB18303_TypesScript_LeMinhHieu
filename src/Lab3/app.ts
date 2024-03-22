@@ -1,140 +1,149 @@
 //Bài 1
 //1.1
-const sum1=()=>{
-    return 5+5
+const sum1 = () => {
+    return 5 + 5;
 };
 console.log(sum1());
-function sumF(){
-    return 5+5
-};
+function sumF() {
+    return 5 + 5;
+}
 console.log(sum1());
 console.log(sumF());
 //1.2
-const sum2=(a:number,b:number=3,...rest:number[])=>{
-let total= a+b
-if(rest.length>0){
-    total+=rest.reduce((acc,cur)=>acc+cur)
-}
-return total
-}
-console.log(
-    sum2(5,5,...[1,2,3])
-);
+const sum2 = (a: number, b: number = 3, ...rest: number[]) => {
+    let total = a + b;
+    if (rest.length > 0) {
+        total += rest.reduce((acc, cur) => acc + cur);
+    }
+    return total;
+};
+console.log(sum2(5, 5, ...[1, 2, 3]));
 //1.3
-const hobbies:string[]=['Sports','Cooking'];
-const activehobbies:string[]=['Hiking']
-activehobbies.push(hobbies); //Error Argument of type 'string[]' is not assignable to parameter of type 'string'.
-activehobbies.push(hobbies[0],hobbies[1]);
-activehobbies.push(...hobbies)
+const hobbies: string[] = ['Sports', 'Cooking'];
+const activehobbies: string[] = ['Hiking'];
+// activehobbies.push(hobbies); //Argument of type 'string[]' is not assignable to parameter of type 'string'.
+activehobbies.push(hobbies[0], hobbies[1]);
+activehobbies.push(...hobbies);
 console.log(activehobbies);
 //Bài 2
 //2.1
-let sum22 = (x: number, y?: number) => {
-    return x + <number>y;
-};
-let speech = (output: any): void => {
-    console.log('Result' + output);
-};
-speech(sum22(5, 12));
-console.log(speech(sum22(8, 5)));
-//2.2
-let something: void = undefined;
-let nothing: never = null;
-function throwError(erorrMsg: string): never {
-    throw new Error(erorrMsg);
+interface Caculator3 {
+    sum(x: number, y: number): number;
 }
-//3.3
-function AddandHandle(x: number, y: number, cd: (num: number) => void) {
-    const result = x + y;
-    cd(result);
+class CaculatorSum implements Caculator3 {
+    sum(x: number, y: number = 0): number {
+        return x + y;
+    }
 }
-AddandHandle(10, 20, (result) => {
-    console.log(result);
-});
+const calc = new CaculatorSum();
+console.log(calc.sum(5, 5));
 
-//Bài cho thêm
+//2.2
+interface ErrorThrower {
+    throwError(errorMsg: string): never;
+}
+class MyError implements ErrorThrower {
+    throwError(errorMsg: string): never {
+        throw new Error(errorMsg);
+    }
+}
+const myErr = new MyError();
+myErr.throwError('A error occurred!!!');
+//3.3
+interface CaculatorHandle {
+    handleCaculator(result: number): void;
+}
+class CaculatorHandler implements CaculatorHandle {
+    handleCaculator(result: number): void {
+        console.log(result);
+    }
+}
+const AddandHandle = (x: number, y: number, cd: CaculatorHandle) => {
+    const result = x + y;
+    cd.handleCaculator(result);
+};
+const calcHandler = new CaculatorHandler();
+AddandHandle(10, 20, calcHandler);
+
+//Bài cho thêm---------------------------
 
 // Arrow function
-const multiplication=(a:number,b:number)=>{
-return a*b
-}
-console.log( multiplication(5,2));
+const multiplication = (a: number, b: number) => {
+    return a * b;
+};
+console.log(multiplication(5, 2));
 // Cú pháp: Arrow function có cú pháp ngắn gọn hơn so với hàm thông thường.
 // Binding của this: Trong arrow function, this được binding theo lexical scope,còn hàm thông thường this phụ thuộc vào cách hàm được gọi.
 // arguments: Arrow function không có đối tượng arguments, trong khi hàm thông thường có.
 // new: Arrow function không thể được sử dụng với new, nó không có [[Construct]] và sẽ throw một lỗi nếu cố gắng gọi nó với new.
 
 //Function return
-const sum=(a:number,b:number)=>{
-    return a+b
-    }
-    console.log(sum(5,5));
+const sum = (a: number, b: number) => {
+    return a + b;
+};
+console.log(sum(5, 5));
 
-const reverseString=(stri:string)=>{
-return stri.split("").reverse().join(" ")
-}
-console.log( reverseString('Hello'));
+const reverseString = (stri: string) => {
+    return stri.split('').reverse().join(' ');
+};
+console.log(reverseString('Hello'));
 
 //Function as types
-type TwoNumber=(a:number,b:number)=>number;
-const addTwoNumber:TwoNumber=(a,b)=>{
-return a+b;
-}
+type TwoNumber = (a: number, b: number) => number;
+const addTwoNumber: TwoNumber = (a, b) => {
+    return a + b;
+};
 
 //Function with parameters
-const sumArray=(arr:number[])=>{
-return arr.reduce((acc,cur)=>acc+cur)
-}
-console.log(sumArray([1,2,3,4,5]));
+const sumArray = (arr: number[]) => {
+    return arr.reduce((acc, cur) => acc + cur);
+};
+console.log(sumArray([1, 2, 3, 4, 5]));
 
 const calculateSum = (...numbers: number[]): number => {
-return numbers.reduce((acc,cur)=>acc+cur)
-}
-console.log(calculateSum(4,6,8));
-console.log(calculateSum(4,6,8,9,7,3,5));
+    return numbers.reduce((acc, cur) => acc + cur);
+};
+console.log(calculateSum(4, 6, 8));
+console.log(calculateSum(4, 6, 8, 9, 7, 3, 5));
 
 //Default parameter
-const squareNumber=(a:number=7):number=>{
-return a*a
-}
+const squareNumber = (a: number = 7): number => {
+    return a * a;
+};
 console.log(squareNumber());
-const sumTwoNumber=(a:number,b:number=2)=>{
-    return a+b;
-}
+const sumTwoNumber = (a: number, b: number = 2) => {
+    return a + b;
+};
 console.log(sumTwoNumber(2));
 
 //Optional parameter
-const getValueOrDefault=(value?: any, defaultValue: any = "Default"):any=>{
-
-return value !== undefined ? value: defaultValue
-}
+const getValueOrDefault = (value?: any, defaultValue: any = 'Default'): any => {
+    return value !== undefined ? value : defaultValue;
+};
 console.log(getValueOrDefault('HII'));
 console.log(getValueOrDefault());
 
 //Spread operators
-const sumArr=(...arr:number[]):number=>{
-    return arr.reduce((acc,cur)=>acc+cur)
-}
-const arrNumber:number[]=[1,2,3]
+const sumArr = (...arr: number[]): number => {
+    return arr.reduce((acc, cur) => acc + cur);
+};
+const arrNumber: number[] = [1, 2, 3];
 console.log(sumArr(...arrNumber));
 
 //Rest parameter
-const sumRest=(...arr:number[]):number=>{
-    return arr.reduce((acc,cur)=>acc+cur)
-}
+const sumRest = (...arr: number[]): number => {
+    return arr.reduce((acc, cur) => acc + cur);
+};
 console.log(sumRest(1, 2, 3, 4, 5));
 console.log(sumRest(5, 10, 15, 20));
 
 //Function & void
-const voidFuncion1=():void=>{
+const voidFuncion1 = (): void => {
     console.log('Thông báo');
-
-}
+};
 console.log(voidFuncion1());
 
-const neverFuncion1=():void=>{
-
-}
+const neverFuncion1 = (): void => {};
 console.log(neverFuncion1());
 
 //Never & void

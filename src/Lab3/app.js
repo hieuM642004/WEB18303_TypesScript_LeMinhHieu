@@ -16,7 +16,6 @@ console.log(sum1());
 function sumF() {
     return 5 + 5;
 }
-;
 console.log(sum1());
 console.log(sumF());
 //1.2
@@ -36,35 +35,46 @@ console.log(sum2.apply(void 0, __spreadArray([5, 5], [1, 2, 3], false)));
 //1.3
 var hobbies = ['Sports', 'Cooking'];
 var activehobbies = ['Hiking'];
-activehobbies.push(hobbies); //Error Argument of type 'string[]' is not assignable to parameter of type 'string'.
+// activehobbies.push(hobbies); //Argument of type 'string[]' is not assignable to parameter of type 'string'.
 activehobbies.push(hobbies[0], hobbies[1]);
 activehobbies.push.apply(activehobbies, hobbies);
 console.log(activehobbies);
-//Bài 2
-//2.1
-var sum22 = function (x, y) {
-    return x + y;
-};
-var speech = function (output) {
-    console.log('Result' + output);
-};
-speech(sum22(5, 12));
-console.log(speech(sum22(8, 5)));
-//2.2
-var something = undefined;
-var nothing = null;
-function throwError(erorrMsg) {
-    throw new Error(erorrMsg);
-}
-//3.3
-function AddandHandle(x, y, cd) {
+var CaculatorSum = /** @class */ (function () {
+    function CaculatorSum() {
+    }
+    CaculatorSum.prototype.sum = function (x, y) {
+        if (y === void 0) { y = 0; }
+        return x + y;
+    };
+    return CaculatorSum;
+}());
+var calc = new CaculatorSum();
+console.log(calc.sum(5, 5));
+var MyError = /** @class */ (function () {
+    function MyError() {
+    }
+    MyError.prototype.throwError = function (errorMsg) {
+        throw new Error(errorMsg);
+    };
+    return MyError;
+}());
+var myErr = new MyError();
+myErr.throwError('A error occurred!!!');
+var CaculatorHandler = /** @class */ (function () {
+    function CaculatorHandler() {
+    }
+    CaculatorHandler.prototype.handleCaculator = function (result) {
+        console.log(result);
+    };
+    return CaculatorHandler;
+}());
+var AddandHandle = function (x, y, cd) {
     var result = x + y;
-    cd(result);
-}
-AddandHandle(10, 20, function (result) {
-    console.log(result);
-});
-//Bài cho thêm
+    cd.handleCaculator(result);
+};
+var calcHandler = new CaculatorHandler();
+AddandHandle(10, 20, calcHandler);
+//Bài cho thêm---------------------------
 // Arrow function
 var multiplication = function (a, b) {
     return a * b;
@@ -80,7 +90,7 @@ var sum = function (a, b) {
 };
 console.log(sum(5, 5));
 var reverseString = function (stri) {
-    return stri.split("").reverse().join(" ");
+    return stri.split('').reverse().join(' ');
 };
 console.log(reverseString('Hello'));
 var addTwoNumber = function (a, b) {
@@ -113,7 +123,7 @@ var sumTwoNumber = function (a, b) {
 console.log(sumTwoNumber(2));
 //Optional parameter
 var getValueOrDefault = function (value, defaultValue) {
-    if (defaultValue === void 0) { defaultValue = "Default"; }
+    if (defaultValue === void 0) { defaultValue = 'Default'; }
     return value !== undefined ? value : defaultValue;
 };
 console.log(getValueOrDefault('HII'));
@@ -143,8 +153,7 @@ var voidFuncion1 = function () {
     console.log('Thông báo');
 };
 console.log(voidFuncion1());
-var neverFuncion1 = function () {
-};
+var neverFuncion1 = function () { };
 console.log(neverFuncion1());
 //Never & void
 //Void
