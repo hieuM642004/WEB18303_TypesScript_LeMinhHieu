@@ -1,0 +1,12 @@
+var loginForm = document.getElementById("login");
+var h1 = document.createElement("h1");
+h1.textContent = "Login";
+var lable = document.createElement("label");
+lable.textContent = "Username: ";
+var input = document.createElement("input");
+var button = document.createElement("button");
+button.textContent = "Start";
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.appendChild(h1);
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.appendChild(lable);
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.appendChild(input);
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.appendChild(button);
